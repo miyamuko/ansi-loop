@@ -45,6 +45,15 @@
 ;;;>      United States of America
 ;;;>      +1-617-221-1000
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; Modification History
+;;;
+;;; 03/19/93 bill eval-when around package definition
+;;;
+
+(eval-when (:compile-toplevel :load-toplevel :execute)
+(ccl:require :loop))
 
 (in-package :ansi-loop)
 
@@ -59,19 +68,24 @@
 
 
 #-Symbolics
-(unless (find-package 'symbolics-loop)
-  (make-package 'symbolics-loop :use nil))
+(eval-when (:compile-toplevel :execute :load-toplevel)
+  (unless (find-package 'symbolics-loop)
+    (make-package 'symbolics-loop :use nil)))
+  
+#-Symbolics
+(eval-when (:compile-toplevel :execute :load-toplevel)
+  (import 'ansi-loop::loop-finish (find-package 'symbolics-loop))
+)
 
 #-Symbolics
-(import 'ansi-loop::loop-finish (find-package 'symbolics-loop))
-
-#-Symbolics
-(export '(symbolics-loop::loop
-		   symbolics-loop::loop-finish
-		   symbolics-loop::define-loop-iteration-path
-		   symbolics-loop::define-loop-sequence-path
-		   )
-	(find-package 'symbolics-loop))
+(eval-when (:compile-toplevel :execute :load-toplevel)
+  (export '(symbolics-loop::loop
+            symbolics-loop::loop-finish
+            symbolics-loop::define-loop-iteration-path
+            symbolics-loop::define-loop-sequence-path
+            )
+	  (find-package 'symbolics-loop))
+)
 
 
 
