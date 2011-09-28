@@ -43,6 +43,9 @@
          :format-string format-string
          :format-arguments format-args))
 
+(defun special-operator-p (symbol)
+  (special-form-p symbol))
+
 
 (provide "ansi-loop/missing")
 
