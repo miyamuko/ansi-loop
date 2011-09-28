@@ -62,7 +62,9 @@
 
 ;;;; LOOP Iteration Macro
 
-(defpackage ANSI-LOOP (:use "COMMON-LISP"))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (require "ansi-loop/package")
+  (require "ansi-loop/missing"))
 
 (in-package :ansi-loop)
 
@@ -144,6 +146,9 @@
   ;; replaced with the appropriate conditional name for your
   ;; implementation/dialect.
   ;; Uhh, DECLARATION-INFORMATION isn't ANSI-CL anymore
+  #+xyzzy
+  (values 1 1 1 1 1)
+  #-xyzzy
   (let ((stuff (declaration-information 'optimize env)))
     (values (or (cadr (assoc 'speed stuff)) 1)
             (or (cadr (assoc 'space stuff)) 1)
@@ -386,6 +391,17 @@ code to be loaded.
   `(setf (gethash (symbol-name ,symbol) ,table) ,datum))
 
 
+(defun print-loop-universe (u stream level)
+  (declare (ignore level))
+  (let ((str (case (loop-universe-ansi u)
+	       ((nil) "Non-ANSI")
+	       ((t) "ANSI")
+	       (:extended "Extended-ANSI")
+	       (t (loop-universe-ansi u)))))
+    (print-unreadable-object (u stream :type t :identity t)
+      (princ str stream))))
+
+
 (defstruct (loop-universe
 	     (:print-function print-loop-universe)
 	     (:copier nil)
@@ -399,17 +415,6 @@ code to be loaded.
   ansi						;NIL, T, or :EXTENDED.
   implicit-for-required				;see loop-hack-iteration
   )
-
-
-(defun print-loop-universe (u stream level)
-  (declare (ignore level))
-  (let ((str (case (loop-universe-ansi u)
-	       ((nil) "Non-ANSI")
-	       ((t) "ANSI")
-	       (:extended "Extended-ANSI")
-	       (t (loop-universe-ansi u)))))
-    (print-unreadable-object (u stream :type t :identity t)
-      (princ str stream))))
 
 
 ;;;This is the "current" loop context in use when we are expanding a
@@ -853,8 +858,8 @@ a LET-like macro, and a SETQ-like macro, which perform LOOP-style destructuring.
 
 
 (defun loop-error (format-string &rest format-args)
-  (ccl::signal-program-error "~?~%Current LOOP context:~{ ~S~}."
-                             format-string format-args (loop-context)))
+  (signal-program-error "~?~%Current LOOP context:~{ ~S~}."
+                        format-string format-args (loop-context)))
 
 
 (defun loop-warn (format-string &rest format-args)
@@ -2079,4 +2084,7 @@ collected result will be returned as the value of the LOOP."
 (defmacro loop (&environment env &rest keywords-and-forms)
   (loop-standard-expansion keywords-and-forms env *loop-ansi-universe*))
 
-(cl:provide "LOOP")
+
+(provide "ansi-loop/ansi-loop")
+
+;; End

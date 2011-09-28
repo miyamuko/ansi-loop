@@ -53,7 +53,7 @@
 ;;;
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
-(ccl:require :loop))
+  (require "ansi-loop/ansi-loop"))
 
 (in-package :ansi-loop)
 
@@ -133,3 +133,8 @@ of the sequence."
   #+Genera (declare (compiler:do-not-record-macroexpansions)
 		    (zwei:indentation . zwei:indent-loop))
   (loop-standard-expansion keywords-and-forms env *loop-default-universe*))
+
+
+(provide "ansi-loop/extended-loop")
+
+;; End
