@@ -2,7 +2,8 @@
 
 ;;; ansi-loop/package.l
 ;;
-;; Copyright (c) 2011 MIYAMUKO Katsuyuki.
+;; Portions of LOOP are Copyright (c) 2011 MIYAMUKO Katsuyuki.
+;; All Rights Reserved.
 ;;
 ;; Permission to use, copy, modify, and distribute this software and its
 ;; documentation for any purpose and without fee is hereby granted,

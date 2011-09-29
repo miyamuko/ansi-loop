@@ -1,0 +1,16 @@
+package: ansi-loop
+version: 1.0.0
+
+sources:
+  include:
+    - site-lisp/ansi-loop/**/*.l
+  exclude:
+    - site-lisp/ansi-loop/**/test/*.l
+
+document:
+  - README.rdoc
+
+files:
+  include:
+    - site-lisp/**/*.l
+    - site-lisp/**/*.lc

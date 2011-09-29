@@ -1,0 +1,11 @@
+2011-09-29  MIYAMUKO Katsuyuki
+
+	* test を動かせるようにした
+
+	* extended-loop.l はとりあえず動くようになった
+
+2011-09-28  MIYAMUKO Katsuyuki
+
+	* ansi-loop.l はとりあえず動くようになった
+
+	* ansi-loop 作成開始
