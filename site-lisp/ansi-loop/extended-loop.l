@@ -67,17 +67,17 @@
 ;;; package setup is done elsewhere.   
 
 
-#-Symbolics
+#-(or xyzzy Symbolics)
 (eval-when (:compile-toplevel :execute :load-toplevel)
   (unless (find-package 'symbolics-loop)
     (make-package 'symbolics-loop :use nil)))
-  
-#-Symbolics
+
+#-(or xyzzy Symbolics)
 (eval-when (:compile-toplevel :execute :load-toplevel)
   (import 'ansi-loop::loop-finish (find-package 'symbolics-loop))
 )
 
-#-Symbolics
+#-(or xyzzy Symbolics)
 (eval-when (:compile-toplevel :execute :load-toplevel)
   (export '(symbolics-loop::loop
             symbolics-loop::loop-finish
@@ -88,6 +88,10 @@
 )
 
 
+#+xyzzy
+(export '(define-loop-iteration-path
+	  define-loop-sequence-path
+	  ))
 
 ;;;This is our typical "extensible" universe, which should be a proper superset of the ansi universe.
 (defvar *loop-default-universe* (make-ansi-loop-universe t))
@@ -99,7 +103,7 @@
 
 
 
-(defmacro symbolics-loop:define-loop-iteration-path (path-name function
+(defmacro define-loop-iteration-path (path-name function
 						     &key alternate-names preposition-groups
 						     inclusive-permitted user-data (loop-universe '*loop-default-universe*))
   `(eval-when (eval compile load)
@@ -109,7 +113,7 @@
 		    :user-data ',user-data)))
 
 
-(defmacro symbolics-loop:define-loop-sequence-path (path-name-or-names fetch-function size-function
+(defmacro define-loop-sequence-path (path-name-or-names fetch-function size-function
 						    &optional sequence-type element-type)
   "Defines a sequence iteration path.  PATH-NAME-OR-NAMES is either an
 atomic path name or a list of path names.  FETCHFUN is a function of
@@ -129,7 +133,7 @@ of the sequence."
 				 :element-type ,element-type))))
 
 
-(defmacro symbolics-loop:loop (&environment env &rest keywords-and-forms)
+(defmacro loop (&environment env &rest keywords-and-forms)
   #+Genera (declare (compiler:do-not-record-macroexpansions)
 		    (zwei:indentation . zwei:indent-loop))
   (loop-standard-expansion keywords-and-forms env *loop-default-universe*))
