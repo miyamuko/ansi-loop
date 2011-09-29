@@ -117,6 +117,11 @@
 ;;; 
 
 
+#+xyzzy
+(export '(loop
+          loop-finish
+          ))
+
 ;;;; Miscellaneous Environment Things
 
 ;;; The uses of this macro are retained in the CL version of loop, in

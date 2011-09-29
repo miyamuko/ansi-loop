@@ -17,17 +17,12 @@
     (defpackage :ansi-loop
       (:use
        :lisp
+       )
+      ;; ŒİŠ·«‚Ì‚½‚ß cmu_loop.l ‚Ì’è‹`‚ğã‘‚«‚µ‚È‚¢
+      (:shadow
+       :loop
+       :loop-finish
        ))))
-
-(in-package :ansi-loop)
-
-;; ŒİŠ·«‚Ì‚½‚ß cmu_loop.l ‚Ì’è‹`‚ğã‘‚«‚µ‚È‚¢
-(shadow '(loop
-          loop-finish))
-
-(export '(loop
-          loop-finish
-          ))
 
 
 (provide "ansi-loop/package")
