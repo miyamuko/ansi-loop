@@ -111,7 +111,8 @@ shadowing-import してください。
 
 === ACKNOWLEDGEMENT
 
-MIT の loop マクロなど、{@g000001}[http://twitter.com/#!/g000001] さんにいろいろ教えてもらいました。
+MIT の loop マクロなど、
+{@g000001}[http://twitter.com/#!/g000001] さんにいろいろ教えてもらいました。
 
 
 === COPYRIGHT
