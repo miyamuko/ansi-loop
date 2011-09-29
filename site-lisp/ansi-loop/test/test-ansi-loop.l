@@ -329,6 +329,28 @@
 	    while (< i 5))
   (() (3 5)))
 
+(test "WHILE sequencing 3"
+      (n)
+      (let (r)
+	(loop for i from 0 to 5
+	  while (< i n)
+	  do (push i r))
+	(nreverse r))
+  ((0) nil)
+  ((1) (0))
+  ((2) (0 1)))
+
+(test "UNTIL sequencing"
+      (n)
+      (let (r)
+	(loop for i from 0 to 5
+	  until (>= i n)
+	  do (push i r))
+	(nreverse r))
+  ((0) nil)
+  ((1) (0))
+  ((2) (0 1)))
+
 (test "simple always"
       (n)
       (loop for i from 0 to n
