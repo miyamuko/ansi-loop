@@ -86,7 +86,7 @@
       (block nil
 	(1+ (loop named hieronymous
 		  do (return 5))))
-  (() 6))
+  (() 5))
 
 (test "named / return-from"
       ()
