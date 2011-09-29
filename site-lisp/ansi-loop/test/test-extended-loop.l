@@ -1,4 +1,4 @@
-;;;   -*- Mode: LISP; Syntax: Common-lisp; Package: EXTENDED-LOOP-TEST-PACKAGE; Base: 10; Lowercase:T -*-
+;;;   -*- Mode: LISP; Syntax: Common-lisp; Package: ansi-loop.test.extended-loop; Base: 10; Lowercase:T -*-
 ;;;>
 ;;;> Portions of LOOP are Copyright (c) 1986 by the Massachusetts Institute of Technology.
 ;;;> All Rights Reserved.
@@ -46,7 +46,25 @@
 ;;;>      +1-617-221-1000
 
 
-(in-package 'extended-loop-test-package)
+(require "lisp-unit")
+(require "ansi-loop/ansi-loop")
+(require "ansi-loop/extended-loop")
+(require "ansi-loop/test/helper")
+
+(defpackage :ansi-loop.test.extended-loop
+  (:use
+   :lisp :editor :lisp-unit :ansi-loop.test.helper)
+  (:shadowing-import-from :ansi-loop
+   loop
+   loop-finish
+   define-loop-iteration-path
+   define-loop-sequence-path
+   ))
+
+(in-package :ansi-loop.test.extended-loop)
+
+(remove-all-tests :ansi-loop.test.extended-loop)
+
 
 (test "simple named"
       ()

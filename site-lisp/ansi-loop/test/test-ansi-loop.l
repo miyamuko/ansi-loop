@@ -1,4 +1,4 @@
-;;;   -*- Mode: LISP; Syntax: Common-lisp; Package: ANSI-LOOP; Base: 10; Lowercase:T -*-
+;;;   -*- Mode: LISP; Syntax: Common-lisp; Package: ansi-loop.test.ansi-loop; Base: 10; Lowercase:T -*-
 ;;;>
 ;;;> Portions of LOOP are Copyright (c) 1986 by the Massachusetts Institute of Technology.
 ;;;> All Rights Reserved.
@@ -45,9 +45,21 @@
 ;;;>      United States of America
 ;;;>      +1-617-221-1000
 
-(in-package "ANSI-LOOP")
+(require "lisp-unit")
+(require "ansi-loop/ansi-loop")
+(require "ansi-loop/test/helper")
 
-
+(defpackage :ansi-loop.test.ansi-loop
+  (:use
+   :lisp :editor :lisp-unit :ansi-loop.test.helper)
+  (:shadowing-import-from :ansi-loop
+   loop
+   loop-finish
+   ))
+
+(in-package :ansi-loop.test.ansi-loop)
+
+(remove-all-tests :ansi-loop.test.ansi-loop)
 
 (test "from/=/collect"
       ()
