@@ -391,15 +391,16 @@ code to be loaded.
   `(setf (gethash (symbol-name ,symbol) ,table) ,datum))
 
 
-(defun print-loop-universe (u stream level)
-  (declare (ignore level))
-  (let ((str (case (loop-universe-ansi u)
-	       ((nil) "Non-ANSI")
-	       ((t) "ANSI")
-	       (:extended "Extended-ANSI")
-	       (t (loop-universe-ansi u)))))
-    (print-unreadable-object (u stream :type t :identity t)
-      (princ str stream))))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defun print-loop-universe (u stream level)
+    (declare (ignore level))
+    (let ((str (case (loop-universe-ansi u)
+		 ((nil) "Non-ANSI")
+		 ((t) "ANSI")
+		 (:extended "Extended-ANSI")
+		 (t (loop-universe-ansi u)))))
+      (print-unreadable-object (u stream :type t :identity t)
+      (princ str stream)))))
 
 
 (defstruct (loop-universe
