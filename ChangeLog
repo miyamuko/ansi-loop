@@ -1,5 +1,7 @@
 2011-09-29  MIYAMUKO Katsuyuki
 
+	* ansi-loop 1.0.0 リリース
+
 	* test を動かせるようにした
 
 	* extended-loop.l はとりあえず動くようになった
