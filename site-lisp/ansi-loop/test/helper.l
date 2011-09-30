@@ -19,6 +19,7 @@
 (in-package :ansi-loop.test.helper)
 
 (export '(assert
+          assert-string-match
           the
           test
           ))
@@ -26,6 +27,9 @@
 (defmacro assert (form)
   `(unless ,form
      (error "Assertion failed: ~S" ',form)))
+
+(defmacro assert-string-match (expected form &rest extras)
+  (lisp-unit::expand-assert :equal form form expected extras :test #'string-match))
 
 (defmacro the (value-type form)
   `(progn ,form))

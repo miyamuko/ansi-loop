@@ -1,3 +1,11 @@
+2011-10-03  MIYAMUKO Katsuyuki
+
+	* print-unreadable-object が未定義で loop-universe の
+	print-function が動いていなかったのを修正
+	(format nil "~A" ansi-loop::*loop-default-universe*)
+	;=> "#<ansi-loop::loop-universe Extended-ANSI 79570848>"
+	print-unreadable-object は ansify のを利用
+
 2011-09-29  MIYAMUKO Katsuyuki
 
 	* ansi-loop 1.0.0 リリース

@@ -15,9 +15,16 @@
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (unless (find-package :ansi-loop)
+    (require "ansify")
+
     (defpackage :ansi-loop
       (:use
        :lisp
+       )
+      ;; xyzzy 標準で lisp::ecase などが将来的に提供された場合でも、
+      ;; シンボルが衝突してエラーにならないように shadowing-import にする
+      (:shadowing-import-from :ansify
+       :print-unreadable-object
        )
       ;; 互換性のため cmu_loop.l の定義を上書きしない
       (:shadow
