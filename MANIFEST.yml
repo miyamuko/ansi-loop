@@ -10,6 +10,9 @@ sources:
 document:
   - README.rdoc
 
+depends:
+  - ansify
+
 files:
   include:
     - site-lisp/**/*.l

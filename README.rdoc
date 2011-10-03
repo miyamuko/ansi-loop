@@ -52,7 +52,7 @@ xyzzy 付属の cmu_loop.l は少しバグっているので、Common Lisp の�
 === INSTALL
 
 1. {NetInstaller}[http://www7a.biglobe.ne.jp/~hat/xyzzy/ni.html]
-   で ansi-loop をインストールします。
+   で ansi-loop, ansify をインストールします。
 
 2. ansi-loop はライブラリであるため自動的にロードはされません。
    必要な時点で require してください。
