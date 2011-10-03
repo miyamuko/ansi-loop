@@ -1,5 +1,7 @@
 2011-10-03  MIYAMUKO Katsuyuki
 
+	* missing.l: ecase, typecase は ansify のを利用するように修正
+
 	* print-unreadable-object が未定義で loop-universe の
 	print-function が動いていなかったのを修正
 	(format nil "~A" ansi-loop::*loop-default-universe*)

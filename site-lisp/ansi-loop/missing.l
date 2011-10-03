@@ -19,23 +19,6 @@
 
 (in-package :ansi-loop)
 
-(defmacro typecase (keyform &body cases)
-  `(case (type-of ,keyform)
-     ,@cases))
-(setf (get 'typecase 'ed::lisp-indent-hook) 1)
-
-(defmacro ecase (keyform &rest cases)
-  `(case ,keyform
-     ,@cases
-     (t
-      (error 'type-error
-             :datum ',keyform
-             :expected-type ',(if (cdr cases)
-                                  `(or ,@(mapcar #'car cases))
-                                (caar cases)))
-      )))
-(setf (get 'ecase 'ed::lisp-indent-hook) 1)
-
 (defmacro the (value-type form)
   `(progn ,form))
 
