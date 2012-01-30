@@ -1,4 +1,5 @@
-;;;   -*- Mode: LISP; Syntax: Common-lisp; Package: ansi-loop.test.ansi-loop; Base: 10; Lowercase:T -*-
+; -*- mode: lisp; package: ansi-loop.test.ansi-loop; encoding: shift_jis -*-
+
 ;;;>
 ;;;> Portions of LOOP are Copyright (c) 1986 by the Massachusetts Institute of Technology.
 ;;;> All Rights Reserved.
