@@ -1,3 +1,10 @@
+2012-01-30  MIYAMUKO Katsuyuki
+
+	* package.l: destructuring-bind など一部 import し忘れていたので、
+	ansify のシンボルは全部まとめて import するようにした
+
+	* missing.l: the と special-operator-p は ansify にあるので削除
+
 2011-10-03  MIYAMUKO Katsuyuki
 
 	* missing.l: ecase, typecase は ansify のを利用するように修正

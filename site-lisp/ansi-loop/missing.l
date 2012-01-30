@@ -19,16 +19,10 @@
 
 (in-package :ansi-loop)
 
-(defmacro the (value-type form)
-  `(progn ,form))
-
 (defun signal-program-error (format-string &rest format-args)
   (error 'simple-program-error
          :format-string format-string
          :format-arguments format-args))
-
-(defun special-operator-p (symbol)
-  (special-form-p symbol))
 
 
 (provide "ansi-loop/missing")
