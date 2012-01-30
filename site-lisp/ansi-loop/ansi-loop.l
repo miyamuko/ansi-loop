@@ -2091,6 +2091,9 @@ collected result will be returned as the value of the LOOP."
 (defmacro loop (&environment env &rest keywords-and-forms)
   (loop-standard-expansion keywords-and-forms env *loop-ansi-universe*))
 
+#+xyzzy
+(setf (get 'loop 'ed:lisp-indent-hook) 0)
+
 
 (provide "ansi-loop/ansi-loop")
 

@@ -1,5 +1,7 @@
 2012-01-30  MIYAMUKO Katsuyuki
 
+	* ansi-loop.l: ed:lisp-indent-hook を設定
+
 	* package.l: destructuring-bind など一部 import し忘れていたので、
 	ansify のシンボルは全部まとめて import するようにした
 
