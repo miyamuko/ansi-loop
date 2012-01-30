@@ -26,8 +26,9 @@
        :loop
        :loop-finish
        ))
-    (ansify::install :ansi-loop)
     ))
+
+(ansify::install :ansi-loop)
 
 
 (provide "ansi-loop/package")
