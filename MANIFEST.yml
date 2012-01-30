@@ -1,5 +1,5 @@
 package: ansi-loop
-version: 1.0.0
+version: 1.0.1
 
 sources:
   include:
@@ -8,7 +8,7 @@ sources:
     - site-lisp/ansi-loop/**/test/*.l
 
 document:
-  - README.rdoc
+  - README.md
 
 depends:
   - ansify

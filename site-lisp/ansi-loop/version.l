@@ -22,7 +22,7 @@
 (export '(ansi-loop-version
           ))
 
-(defconstant +ansi-loop-version+ "1.0.0")
+(defconstant +ansi-loop-version+ "1.0.1")
 
 (defun ansi-loop-version ()
   +ansi-loop-version+)

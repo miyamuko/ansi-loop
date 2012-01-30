@@ -1,7 +1,7 @@
 # ansi-loop - ANSI Common Lisp LOOP macro for xyzzy Lisp
 
 * Home URL: <http://miyamuko.s56.xrea.com/xyzzy/ansi-loop/intro.htm>
-* Version: 1.0.0
+* Version: 1.0.1
 
 
 ## SYNOPSIS
